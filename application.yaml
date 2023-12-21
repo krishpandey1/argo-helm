@@ -2,16 +2,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: apps-staging
+  name: my-app
   namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: dockerconnectme/ngin:~v0.1
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
-    repoURL: https://github.com/krishpandey1/argo-helm.git
-    targetRevision: HEAD
-    path: environments/staging/apps
+    repoURL: git@github.com:krishpandey1/argo-helm.git
+    targetRevision: main
+    path: environment/staging/my-app
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:
