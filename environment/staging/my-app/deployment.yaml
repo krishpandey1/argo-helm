@@ -19,6 +19,6 @@ spec:
       containers:
         - name: nginx
           imagePullPolicy: Always
-          image: dockerconnectme/nginx:v0.1.0
+          image: dockerconnectme/nginx:v1.0.1
           ports:
             - containerPort: 80
